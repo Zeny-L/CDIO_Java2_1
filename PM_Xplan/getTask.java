@@ -35,17 +35,19 @@ public class getTask extends JFrame {
 		this.setBounds(300, 300, 200, 300);
 	}
 
+	//初始化界面
 	private void initComponents() {
-		// 实例化并添加控件
 		cont.setLayout(null);
 
-		Vector<String> v = new Vector<String>();// 可实现自动增长对象数组
+		Vector<String> v = new Vector<String>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver"); // 加载MYSQL JDBC驱动程序
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (Exception e) {
 			System.out.print("Error loading Mysql Driver!");
 			e.printStackTrace();
 		}
+		
+		//连接数据库，获取任务列表
 		try {
 			connect = (Connection) DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/StudyEveryday", "root", "Zeny");
@@ -90,7 +92,6 @@ public class getTask extends JFrame {
 					e1.printStackTrace();
 				}
 			}
-			
 		});
 		this.setResizable(false);
 	}

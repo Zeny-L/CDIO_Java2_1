@@ -25,13 +25,9 @@ public class captureVideo extends JFrame implements ControllerListener {
 			player = Manager.createPlayer(mediaLocator);// 利用mediaLocator创建Player
 			player.addControllerListener(this);
 			player.realize();
-			// System.out.println("infor:"+infor);
-			// System.out.println("mediaLocator:"+mediaLocator);
 		} catch (NoPlayerException e) {
-			// TODO 自动生成 catch 块
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO 自动生成 catch 块
 			e.printStackTrace();
 		}
 	}
@@ -51,7 +47,6 @@ public class captureVideo extends JFrame implements ControllerListener {
 	}
 	
 	public synchronized void controllerUpdate(ControllerEvent arg0) {
-		// TODO 自动生成方法存根
 		if (arg0 instanceof RealizeCompleteEvent) {
 			System.out.println("realized");
 			createComponent(); // 将播放器添加到Panel上

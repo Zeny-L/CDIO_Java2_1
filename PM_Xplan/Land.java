@@ -64,6 +64,7 @@ public class Land extends JFrame {
 
 	}
 
+	//监测用户名密码输入
 	class Monitor_1 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (textname.getText().equals("")) {
@@ -88,6 +89,7 @@ public class Land extends JFrame {
 		}
 	}
 
+	//判断用户名密码是否合法
 	private void Judge(String loginInfo) throws IOException {
 		boolean mark = true;
 		try {
@@ -106,7 +108,10 @@ public class Land extends JFrame {
 				if(rs.getString("UserName").equals(textname.getText().toString())&&rs.getString("UserPassword").equals(textmima.getText().toString())) {
 					jf.setVisible(false);
 					mark = false;
-					new system();
+					if(!rs.getString("UserTitle").equalsIgnoreCase("ordinary"))
+						new adminSystem();
+					else 
+						new ordinarySystem();
 				}
 			}
 			if(mark)
